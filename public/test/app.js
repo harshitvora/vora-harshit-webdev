@@ -4,7 +4,13 @@
         .controller("TestController", TestController)
         .filter('reverse', function() {
             return function(items) {
-                return items.slice().reverse();
+                if(items){
+                    return items.slice().reverse();
+                }
+                else {
+                    return items;
+
+                }
             };
         });
 
