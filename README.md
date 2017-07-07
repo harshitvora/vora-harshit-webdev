@@ -1,5 +1,6 @@
 # vora-harshit-webdev
-Repository for CS5610
+I'm a Computer Science graduate student at Northeastern University, Boston.
+This is my repository for Web Development (CS5610) coursework
 
 Heroku:
 http://vora-harshit-webdev.herokuapp.com/
@@ -9,3 +10,7 @@ https://vora-harshit-webdev.herokuapp.com/project/
 
 Assignment:
 https://vora-harshit-webdev.herokuapp.com/assignment/
+
+
+
+
