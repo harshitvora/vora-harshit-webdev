@@ -4,12 +4,10 @@
         .controller("TestController", TestController)
         .filter('reverse', function() {
             return function(items) {
-                if(items){
+                if(items) {
                     return items.slice().reverse();
-                }
-                else {
+                } else {
                     return items;
-
                 }
             };
         });
