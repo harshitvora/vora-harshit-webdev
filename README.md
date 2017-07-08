@@ -11,7 +11,7 @@ Assignment URL:
 https://vora-harshit-webdev.herokuapp.com/assignment/
 
 
-# About me:
+# about me
 I'm a Computer Science graduate student at Northeastern University, Boston.
 
 
