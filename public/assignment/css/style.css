@@ -1,10 +1,10 @@
 /* navbar */
-.navbar-default {
+.blue{
     background-color: #428bca;
     border-color: #428bca;
 }
 
-.navbar-default .navbar-brand{
+.navbar-default .text-white {
     color: white;
 }
 
