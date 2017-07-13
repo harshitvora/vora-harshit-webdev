@@ -1,14 +1,14 @@
 /* navbar */
-.blue{
+.hv-navbar-blue{
     background-color: #428bca;
     border-color: #428bca;
 }
 
-.navbar-default .text-white {
+.navbar-default .hv-text-white {
     color: white;
 }
 
-.icon-white{
+.hv-icon-white{
     color: white;
 }
 
@@ -17,4 +17,31 @@
 }
 #line{
     border-right: solid 1px black;
+}
+input{
+    margin-bottom: 5px;
+}
+
+body{
+    padding-top: 60px;
+}
+
+.hv-floating-icons{
+    background-color: white;
+    border: solid 1px red;
+    z-index: 1;
+}
+
+.hv-overflow{
+    padding-top: 10px;
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    overflow-y: scroll;
+}
+
+.hv-overflow-offset{
+    position: absolute;
+    right: 0px;
+    top: 60px;
 }

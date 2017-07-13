@@ -3,53 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Website new</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
-<div class="navbar navbar-default blue">
+<div class="navbar navbar-default hv-navbar-blue navbar-fixed-top">
     <div class="container-fluid">
-        <p class="navbar-text pull-left"><a href="website-list.html"><span class="glyphicon glyphicon-chevron-left pull-left icon-white"></span></a></p>
-        <div class="navbar-brand text-white">New Website</div>
-        <p class="navbar-text pull-right"><a href="website-list.html"><span class="glyphicon glyphicon-ok pull-right icon-white"></span></a></p>
+        <p class="navbar-text pull-left"><a href="website-list.html"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a></p>
+        <div class="navbar-brand hv-text-white">New Website</div>
+        <p class="navbar-text pull-right"><a href="website-list.html"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a></p>
     </div>
 </div>
 <div class="container-fluid">
-    <div id="hide" class="col-md-4">
-        <ul class="list-group">
-            <li class="list-group-item"><a href="../page/page-list.html">Address Book App</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-            <li class="list-group-item"><a href="../page/page-list.html">Blogger</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-            <li class="list-group-item"><a href="../page/page-list.html">Blogging App</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-            <li class="list-group-item"><a href="../page/page-list.html">Script Testing App</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-        </ul>
-    </div>
-    <div id="show" class="col-md-8">
-    <form action=""
-          method="post"
-          class="">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text"
-                   name="name"
-                   id="name"
-                   class="form-control"
-                   placeholder="Name">
+    <div class="row">
+        <div id="hide" class="col-md-4 hidden-sm hidden-xs hv-overflow">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="../page/page-list.html">Address Book App</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                <li class="list-group-item"><a href="../page/page-list.html">Blogger</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                <li class="list-group-item"><a href="../page/page-list.html">Blogging App</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                <li class="list-group-item"><a href="../page/page-list.html">Script Testing App</a><a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+            </ul>
         </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description"
-                      id="description"
-                      class="form-control"
-                      placeholder="Description"
-                      rows="3"></textarea>
+        <div id="show" class="col-md-8 col-xs-12 hv-overflow-offset">
+            <form action=""
+                  method="post"
+                  class="">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text"
+                           name="name"
+                           id="name"
+                           class="form-control"
+                           placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description"
+                              id="description"
+                              class="form-control"
+                              placeholder="Description"
+                              rows="5"></textarea>
+                </div>
+            </form>
         </div>
-    </form>
     </div>
 </div>
-<div class="navbar navbar-default navbar-fixed-bottom blue">
+<div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">
     <div class="container-fluid">
-        <p class="navbar-text pull-right"><a href="../user/profile.html"><span class="glyphicon glyphicon-user icon-white"></span></a></p>
+        <p class="navbar-text pull-right"><a href="../user/profile.html"><span class="glyphicon glyphicon-user hv-icon-white"></span></a></p>
 
     </div>
 </div>
