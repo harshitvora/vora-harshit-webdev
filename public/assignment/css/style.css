@@ -3,6 +3,11 @@
     border-color: #428bca;
 }
 
+.hv-navbar-black{
+    background-color: black;
+    border-color: black;
+}
+
 .navbar-default .hv-text-white {
     color: white;
 }
@@ -28,6 +33,14 @@
 
 .hv-icon-black{
     color: black;
+}
+
+.hv-header{
+    background: url("../../vendor/img/header.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .nav.navbar-default{
@@ -69,4 +82,22 @@ body{
     position: absolute;
     right: 0px;
     top: 60px;
+}
+
+.hv-avatar-container{
+    background-color:  black;
+    text-align: center;
+    color: white;
+    margin-top: 6%;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 25px;
+    padding: 3%;
+}
+
+.hv-avatar{
+    height: 16.67vw;
+    width: 16.67vw;
+    margin: auto;
+    border-radius: 50%;
 }
