@@ -12,6 +12,11 @@
     color: white;
 }
 
+.navbar-default .hv-text-white > a {
+    color: white;
+    text-decoration: none;
+}
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     background-color: transparent;
@@ -20,6 +25,10 @@
 
 .hv-icon-white{
     color: white;
+}
+
+.hv-icon-black{
+    color: black;
 }
 
 .nav.navbar-default{
@@ -36,10 +45,17 @@ body{
     padding-top: 60px;
 }
 
+.hv-widget{
+    position: relative;
+}
+
 .hv-floating-icons{
+    position: absolute;
     background-color: white;
-    border: solid 1px red;
-    z-index: 1;
+    z-index: +2;
+    right: 10px;
+    border-radius: 5px;
+    padding: 3px;
 }
 
 .hv-overflow{
