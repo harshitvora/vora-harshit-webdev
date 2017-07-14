@@ -12,6 +12,12 @@
     color: white;
 }
 
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    background-color: transparent;
+    color: white;
+}
+
 .hv-icon-white{
     color: white;
 }
