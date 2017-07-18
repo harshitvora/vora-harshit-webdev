@@ -12,14 +12,17 @@
     <link rel="icon" href="../../vendor/img/logo.PNG">
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
-    <div class="container-fluid">
+<div class="navbar navbar-default hv-navbar-blue navbar-fixed-top">
+    <div class="col-md-4 hidden-sm hidden-xs">
         <p class="navbar-text pull-left">
-            <a href="page-list.html"><span class="glyphicon glyphicon-chevron-left hv-icon-white pull-left"></span></a>
+            <a href="page-list.html"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
         </p>
+        <div class="navbar-brand hv-text-white">Pages</div>
+    </div>
+    <div class="col-md-8 col-xs-12">
         <div class="navbar-brand hv-text-white">New Page</div>
         <p class="navbar-text pull-right">
-            <a href="page-list.html"><span class="glyphicon glyphicon-ok hv-icon-white pull-right"></span></a>
+            <a href="page-list.html"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
         </p>
     </div>
 </div>
@@ -27,7 +30,8 @@
     <div class="row">
         <div id="hide" class="col-md-4 hidden-sm hidden-xs hv-overflow">
             <ul class="list-group">
-                <li class="list-group-item active">Page Name</li>
+                <li class="list-group-item active">Page Name
+                    <a href="page-new.html"><span class="glyphicon glyphicon-plus hv-icon-white pull-right"></span></a></li>
                 <li class="list-group-item">
                     <a href="../widget/widget-list.html">Blog post</a>
                     <a href="page-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
