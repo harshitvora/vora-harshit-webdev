@@ -82,7 +82,7 @@ body{
     padding-top: 10px;
     position: absolute;
     top: 50px;
-    bottom: 100px;
+    margin-bottom: 100px;
 }
 
 .hv-overflow-offset{
