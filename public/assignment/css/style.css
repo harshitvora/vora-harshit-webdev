@@ -3,6 +3,10 @@
     border-color: #428bca;
 }
 
+a:hover{
+    text-decoration: none;
+}
+
 .hv-navbar-black{
     background-color: rgba(0, 0, 0, 0.7);
     border-color: black;
