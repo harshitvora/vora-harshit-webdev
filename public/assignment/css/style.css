@@ -78,6 +78,13 @@ body{
     overflow-y: scroll;
 }
 
+.hv-container-overflow{
+    padding-top: 10px;
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+}
+
 .hv-overflow-offset{
     position: absolute;
     right: 0px;
