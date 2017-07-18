@@ -65,9 +65,13 @@ body{
     position: absolute;
     background-color: white;
     z-index: +2;
-    right: 10px;
+    right: 0px;
     border-radius: 5px;
     padding: 3px;
+}
+
+.hv-widget-element{
+    width:100%;
 }
 
 .hv-overflow{
