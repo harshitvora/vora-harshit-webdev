@@ -1,10 +1,9 @@
 (function () {
     angular
-        .module("WebsiteMakerApp")
+        .module("WebAppMaker")
         .service("websiteService", websiteService);
 
     function websiteService() {
-
         var websites = [
                 { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem"},
                 { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem"},

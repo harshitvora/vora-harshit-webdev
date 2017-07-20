@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("websiteListController", WebsiteListController)
+        .controller("websiteListController", websiteListController)
 
-    function WebsiteListController($routeParams, websiteService) {
+    function websiteListController($scope, $routeParams, websiteService) {
         // var model = this;
 
         //Event handles:
