@@ -1,53 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../../vendor/img/logo.PNG">
-    <link rel="icon" href="../../vendor/img/logo.PNG">
-</head>
-<body>
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <div class="navbar-brand hv-text-white"><a href="../">Assignment</a></div>
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" style="margin-top: 100px">
         <div class="col-xs-12 col-md-4 col-md-offset-4">
+
+            <div ng-show="model.errorMessage" class="alert alert-danger">
+                {{model.errorMessage}}
+            </div>
+
             <h1>Login</h1>
             <form action=""
                   method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text"
+                           ng-model="model.user.username"
                            name="username"
                            id="username"
                            placeholder="username"
-                           class="form-control">
+                           class="form-control"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password"
+                           ng-model="model.user.password"
                            name="password"
                            id="password"
                            placeholder="password"
-                           class="form-control">
+                           class="form-control"
+                           required>
                 </div>
-                    <a href="profile.html"
+                    <a ng-click="model.login(model.user)"
                        class="btn btn-primary btn-block"
                        role="button">Login</a>
-                    <a href="register.html"
+                    <a href="#!/register"
                        class="btn btn-success btn-block"
                        role="button">Register</a>
             </form>
         </div>
     </div>
 </div>
-</body>
-</html>

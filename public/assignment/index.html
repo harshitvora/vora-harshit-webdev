@@ -1,39 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebAppMaker" class="ng-scope">
 <head>
     <meta charset="UTF-8">
-    <title>Assignment</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet"/>
+    <script type="text/javascript" src="../vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="../vendor/angular/angular-route.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript" src="views/user/controllers/login.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/profile.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/register.controller.client.js"></script>
+    <script type="text/javascript" src="services/user.service.client.js"></script>
     <link href="css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../vendor/img/logo.PNG">
-    <link rel="icon" href="../vendor/img/logo.PNG">
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
-    <div class="container-fluid">
-        <div class="navbar-brand hv-text-white">
-            <a href="../">Assignment</a>
-        </div>
-        <div class="navbar-text pull-right hv-text-white">
-            <a href="user/login.html">Login</a>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3">
-            <div class="jumbotron">
-                <h1>Website Builder</h1>
-                <p>This is a Website to create Websites.
-                    This Website allows users to create and use online, mobile friendly, Websites.</p>
-                <p><a href="user/login.html"><b>Login</b></a> to begin!</p>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
+<div ng-view class="ng-scope"></div>
 </body>
 </html>

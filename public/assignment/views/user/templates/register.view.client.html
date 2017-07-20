@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
-    <link href="../../vendor/angular/angular.js">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="../css/style.css"
-          rel="stylesheet">
-    <link rel="shortcut icon"
-          href="../../vendor/img/logo.PNG">
-    <link rel="icon"
-          href="../../vendor/img/logo.PNG">
-</head>
-<body>
+
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <div class="navbar-brand hv-text-white"><a href="../">Assignment</a></div>
@@ -26,12 +7,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-md-4 col-md-offset-4">
+            <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
             <h1>Register</h1>
             <form action=""
                   method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text"
+                           ng-model="model.user.username"
                            name="username"
                            id="username"
                            placeholder="username"
@@ -40,6 +23,7 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password"
+                           ng-model="model.user.password"
                            name="password"
                            id="password"
                            placeholder="password"
@@ -53,13 +37,11 @@
                            placeholder="verify password"
                            class="form-control">
                 </div>
-                    <a href="profile.html"
+                    <a ng-click="model.register(user)"
                        class="btn btn-primary btn-block">Register</a>
-                    <a href="login.html"
+                    <a href="#!/login"
                        class="btn btn-danger btn-block">Cancel</a>
             </form>
         </div>
     </div>
 </div>
-</body>
-</html>

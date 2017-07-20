@@ -1,31 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
-    <link href="../../vendor/angular/angular.js">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="../css/style.css"
-          rel="stylesheet">
-    <link rel="shortcut icon"
-          href="../../vendor/img/logo.PNG">
-    <link rel="icon"
-          href="../../vendor/img/logo.PNG">
-</head>
-<body>
+
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="../"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
+            <a href="../../"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Profile</div>
         <p class="navbar-text pull-right">
-            <a href="profile.html"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
+            <a href="profile.view.client.html"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
         </p>
     </div>
 </div>
@@ -36,12 +17,14 @@
             <form action=""
                   method="post">
                 <div class="form-group">
+                    {{model.user}}
                     <label for="username">Username</label>
                     <input type="text"
                            readonly
                            name="username"
                            id="username"
-                           value="harshit"
+                           ng-model="model.user.username"
+                           placeholder="username"
                            class="form-control">
                 </div>
                 <div class="form-group">
@@ -50,6 +33,7 @@
                            name="email"
                            id="email"
                            value="harshit@gmail.com"
+                           placeholder="email"
                            class="form-control">
                 </div>
                 <div class="form-group">
@@ -57,7 +41,8 @@
                     <input type="text"
                            name="firstName"
                            id="firstName"
-                           value="Harshit"
+                           ng-model="model.user.firstName"
+                           placeholder="first name"
                            class="form-control">
                 </div>
                 <div class="form-group">
@@ -65,12 +50,13 @@
                     <input type="text"
                            name="lastName"
                            id="lastName"
-                           value="Vora"
+                           ng-model="model.user.lastName"
+                           placeholder="last name"
                            class="form-control">
                 </div>
-                    <a href="../website/website-list.html"
+                    <a href="#!/user/{{model.user._id}}/website"
                        class="btn btn-primary btn-block">Websites</a>
-                    <a href="login.html"
+                    <a href="#!/login"
                        class="btn btn-danger btn-block">Logout</a>
             </form>
         </div>
@@ -83,5 +69,3 @@
         </p>
     </div>
 </div>
-</body>
-</html>
