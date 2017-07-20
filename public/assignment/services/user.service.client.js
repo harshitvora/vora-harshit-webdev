@@ -56,9 +56,11 @@
         }
         
         function updateUser(userId, user) {
+            user._id = userId;
             for(var u in users){
                 if(users[u]._id === userId){
                     users[u] = user;
+                    console.log(users[u]);
                 }
             }
             return user;

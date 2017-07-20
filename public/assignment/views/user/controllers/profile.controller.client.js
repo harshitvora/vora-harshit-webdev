@@ -7,7 +7,7 @@
         // var model = this;
 
         //Event handles:
-        $scope.updatUser = updateUser;
+        $scope.updateUser = updateUser;
         $scope.deleteUser = deleteUser;
 
         function init() {
@@ -18,8 +18,16 @@
         init();
 
         function updateUser(user) {
+            console.log("Updated user!");
             var _user = userService.updateUser(user._id, user);
-            $location.url("/profile/"+_user._id);
+            if(!_user){
+                $scope.error = "Error updating profile";
+            }
+            else{
+                $scope.successMessage = "Profile updated!";
+                $scope.updateuser = _user;
+                $location.url("/profile/"+_user._id);
+            }
         }
 
         function deleteUser(userId) {
