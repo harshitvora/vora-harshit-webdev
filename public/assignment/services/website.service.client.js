@@ -16,7 +16,7 @@
 
         this.findWebsitesByUser = findWebsitesByUser;
         this.createWebsite = createWebsite;
-        this.findWebsitesById = findWebsiteById;
+        this.findWebsiteById = findWebsiteById;
         this.updateWebsite = updateWebsite;
         this.deleteWebsite = deleteWebsite;
 
@@ -34,7 +34,7 @@
         function createWebsite(userId, website) {
             website._id = (new Date()).getTime() + "";
             website.developerId = userId;
-            users.push(website);
+            websites.push(website);
             return website;
         }
         
