@@ -18,20 +18,19 @@
         init();
 
         function updateUser(user) {
-            console.log("Updated user!");
             var _user = userService.updateUser(user._id, user);
             if(!_user){
                 $scope.error = "Error updating profile";
             }
             else{
                 $scope.successMessage = "Profile updated!";
-                $scope.updateuser = _user;
                 $location.url("/profile/"+_user._id);
             }
         }
 
         function deleteUser(userId) {
             userService.deleteUser(userId);
+            $location.url("/login");
         }
     }
 })();
