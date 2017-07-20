@@ -17,5 +17,11 @@
             .when("/user/:uid/website", {
                 templateUrl: "views/website/templates/website-list.view.client.html",
                 controller: "websiteListController"})
+            .when("/user/:uid/website/new", {
+                templateUrl: "views/website/templates/website-new.view.client.html",
+                controller: "newWebsiteController"})
+            .when("/user/:uid/website/:wid", {
+                templateUrl: "views/website/templates/website-edit.view.client.html",
+                controller: "editWebsiteController"})
     }
 })();
