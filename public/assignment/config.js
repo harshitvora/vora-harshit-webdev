@@ -11,8 +11,11 @@
             .when("/register", {
                 templateUrl: "views/user/templates/register.view.client.html",
                 controller: "registerController"})
-            .when("/profile/:userId", {
+            .when("/user/:uid", {
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController"})
+            .when("/user/:uid/website", {
+                templateUrl: "views/website/templates/website-list.view.client.html",
+                controller: "websiteController"})
     }
 })();

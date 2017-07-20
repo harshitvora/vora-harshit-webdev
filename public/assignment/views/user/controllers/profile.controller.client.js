@@ -11,7 +11,7 @@
         $scope.deleteUser = deleteUser;
 
         function init() {
-            var userId = $routeParams["userId"];
+            var userId = $routeParams["uid"];
             var _user = userService.findUserByUserId(userId);
             $scope.user = _user;
         }
@@ -24,7 +24,7 @@
             }
             else{
                 $scope.successMessage = "Profile updated!";
-                $location.url("/profile/"+_user._id);
+                $location.url("/user/"+_user._id);
             }
         }
 

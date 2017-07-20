@@ -20,7 +20,7 @@
                 $scope.errorMessage = "User not found!";
             }
             else {
-                $location.url("profile/"+_user._id);
+                $location.url("user/"+_user._id);
             }
         }
     }
