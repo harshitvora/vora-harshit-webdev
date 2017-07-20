@@ -17,13 +17,13 @@
             <form action=""
                   method="post">
                 <div class="form-group">
-                    {{model.user}}
                     <label for="username">Username</label>
                     <input type="text"
                            readonly
                            name="username"
                            id="username"
-                           ng-model="model.user.username"
+                           ng-model="user.username"
+                           value = "{{user.username}}"
                            placeholder="username"
                            class="form-control">
                 </div>
@@ -41,7 +41,7 @@
                     <input type="text"
                            name="firstName"
                            id="firstName"
-                           ng-model="model.user.firstName"
+                           ng-model="user.firstName"
                            placeholder="first name"
                            class="form-control">
                 </div>
@@ -50,11 +50,11 @@
                     <input type="text"
                            name="lastName"
                            id="lastName"
-                           ng-model="model.user.lastName"
+                           ng-model="user.lastName"
                            placeholder="last name"
                            class="form-control">
                 </div>
-                    <a href="#!/user/{{model.user._id}}/website"
+                    <a href="#!/user/{{user._id}}/website"
                        class="btn btn-primary btn-block">Websites</a>
                     <a href="#!/login"
                        class="btn btn-danger btn-block">Logout</a>

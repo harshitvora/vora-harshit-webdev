@@ -3,17 +3,17 @@
         .module("WebAppMaker")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, userService, $location) {
-        var model = this;
+    function profileController($scope, $routeParams, userService, $location) {
+        // var model = this;
 
         //Event handles:
-        model.updatUser = updateUser;
-        model.deleteUser = deleteUser;
+        $scope.updatUser = updateUser;
+        $scope.deleteUser = deleteUser;
 
         function init() {
             var userId = $routeParams["userId"];
-            var user = userService.findUserByUserId(userId);
-            model.user = user;
+            var _user = userService.findUserByUserId(userId);
+            $scope.user = _user;
         }
         init();
 
