@@ -1,7 +1,7 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("websiteListController", websiteListController);
+        .controller("websiteListController", websiteListController)
 
     function websiteListController($scope, $routeParams, websiteService) {
         // var model = this;

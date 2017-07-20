@@ -29,7 +29,7 @@
 
             for(var p in pages){
                 if(pages[p].websiteId === websiteId){
-                    _pages.push(websites[w]);
+                    _pages.push(pages[p]);
                 }
             }
             return _pages;
