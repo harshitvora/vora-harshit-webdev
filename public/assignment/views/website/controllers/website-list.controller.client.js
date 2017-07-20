@@ -9,10 +9,10 @@
         // var model = this;
 
         //Event handles:
+        var userId =  $routeParams["uid"];
+        $scope.uid = userId;
 
         function init() {
-            var userId =  $routeParams["uid"];
-            $scope.uid = userId;
             $scope.websites = websiteService.findWebsitesByUser(userId);
         }
         init();

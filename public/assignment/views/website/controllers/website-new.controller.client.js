@@ -3,14 +3,15 @@
         .module("WebAppMaker")
         .controller("newWebsiteController", newWebsiteController)
 
-    function newWebsiteController($scope, websiteService) {
+    function newWebsiteController($scope, $routeParams, websiteService) {
         // var model = this;
 
         //Event handles:
 
+
+        var userId =  $routeParams["uid"];
+        $scope.uid = userId;
         function init() {
-            var userId =  $routeParams["uid"];
-            $scope.uid = userId;
 
         }
         init();
