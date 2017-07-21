@@ -47,8 +47,8 @@
         // var model = this;
 
         //Event handles:
-        $scope.updatePage = updatePage;
-        $scope.deletePage = deletePage;
+        $scope.updateWidget = updateWidget;
+        $scope.deleteWidget = deleteWidget;
 
         var userId =  $routeParams["uid"];
         var websiteId =  $routeParams["wid"];
@@ -59,6 +59,7 @@
             $scope.uid = userId;
             $scope.wid = websiteId;
             $scope.pid = pageId;
+            $scope.wgid = widgetId;
             var widget = widgetService.findWidgetById(widgetId);
             $scope.widget = widget;
         }
