@@ -37,12 +37,12 @@
                 controller: "editPageController"})
             .when("/user/:uid/website/:wid/page/:pid/widget", {
                 templateUrl: "views/widget/templates/widget-list.view.client.html",
-                controller: "editPageController"})
+                controller: "widgetListController"})
             .when("/user/:uid/website/:wid/page/:pid/widget/new", {
                 templateUrl: "views/widget/templates/widget-chooser.view.client.html",
-                controller: "editPageController"})
-            .when("/user/:uid/website/:wid/page/:pid/widget:wgid", {
+                controller: "newWidgetController"})
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
                 templateUrl: "views/widget/templates/widget-heading-edit.view.client.html",
-                controller: "editPageController"})
+                controller: "editWidgetController"})
     }
 })();

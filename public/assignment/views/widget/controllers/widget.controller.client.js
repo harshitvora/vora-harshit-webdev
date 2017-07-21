@@ -17,7 +17,7 @@
             $scope.uid = userId;
             $scope.wid = websiteId;
             $scope.pid = pageId;
-            $scope.widgets = widgetService.findWidgetByPageId(pageId);
+            $scope.widgets = widgetService.findWidgetsByPageId(pageId);
         }
         init();
     }

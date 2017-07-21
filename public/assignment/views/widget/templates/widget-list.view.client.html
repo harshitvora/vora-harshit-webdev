@@ -1,11 +1,11 @@
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="../../page/templates/page-list.view.client.html"><span class="glyphicon glyphicon-chevron-left hv-icon-white pull-left"></span></a>
+            <a href="#!/user/{{uid}}/website/{{wid}}/page"><span class="glyphicon glyphicon-chevron-left hv-icon-white pull-left"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Widgets</div>
         <p class="navbar-text pull-right">
-            <a href="widget-chooser.view.client.html"><span class="glyphicon glyphicon-plus hv-icon-white pull-right"></span></a>
+            <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><span class="glyphicon glyphicon-plus hv-icon-white pull-right"></span></a>
         </p>
     </div>
 </div>
@@ -14,13 +14,13 @@
         <div ng-repeat="widget in widgets">
             <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING">
-                    <ng-include src="'widget-heading.view.client.html'">
+                    <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
                 </div>
                 <div ng-switch-when="IMAGE">
-                    <ng-include src="'widget-image.view.client.html'">
+                    <ng-include src="'views/widget/templates/widget-image.view.client.html'">
                 </div>
                 <div ng-switch-when="YOUTUBE">
-                    <ng-include src="'widget-youtube.view.client.html'">
+                    <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
                 </div>
             </div>
         </div>
@@ -29,11 +29,11 @@
 <div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="../widget/widget-list.html"><span class="glyphicon glyphicon-play hv-icon-white"></span></a>&nbsp&nbsp
-            <a href="../widget/widget-list.html"><span class="glyphicon glyphicon-eye-open hv-icon-white"></span></a>
+            <a href="#"><span class="glyphicon glyphicon-play hv-icon-white"></span></a>&nbsp&nbsp
+            <a href="#"><span class="glyphicon glyphicon-eye-open hv-icon-white"></span></a>
         </p>
         <p class="navbar-text pull-right">
-            <a href="../../user/templates/profile.view.client.html"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
+            <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
         </p>
     </div>
 </div>
