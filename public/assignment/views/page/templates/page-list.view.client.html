@@ -1,7 +1,7 @@
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="../../website/templates/website-list.view.client.html"><span class="glyphicon glyphicon-chevron-left hv-icon-white pull-left"></span></a>
+            <a href="#!/user/{{uid}}/website/"><span class="glyphicon glyphicon-chevron-left hv-icon-white pull-left"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Page list</div>
     </div>
@@ -9,11 +9,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <div ng-show="successMessage" class="alert alert-success">{{successMessage}}</div>
             <ul class="list-group">
                 <li class="list-group-item active">Page Name
                     <a href="#!/user/{{uid}}/website/{{wid}}/page/new"><span class="glyphicon glyphicon-plus hv-icon-white pull-right"></span></a></li>
                 <li class="list-group-item" ng-repeat="page in pages">
-                    <a href="../../widget/templates/widget-list.view.client.html">{{page.name}}</a>
+                    <a href="#!/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">{{page.name}}</a>
                     <a href="#!/user/{{uid}}/website/{{wid}}/page/{{page._id}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                 </li>
             </ul>
@@ -23,7 +24,7 @@
 <div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="../../user/templates/profile.view.client.html"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
+            <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
         </p>
     </div>
 </div>

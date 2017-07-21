@@ -1,17 +1,17 @@
 <div class="navbar navbar-default hv-navbar-blue navbar-fixed-top">
     <div class="col-md-4 hidden-sm hidden-xs">
         <p class="navbar-text pull-left">
-            <a href="page-list.view.client.html"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
+            <a href="#!/user/{{uid}}/website/{{wid}}/page/"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Pages</div>
     </div>
     <div class="col-md-8 col-xs-12">
         <p class="navbar-text pull-left hidden-md hidden-lg">
-            <a href="page-list.view.client.html"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
+            <a href="#!/user/{{uid}}/website/{{wid}}/page/"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Edit Page</div>
         <p class="navbar-text pull-right">
-            <a href="page-list.view.client.html"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
+            <a ng-click="updatePage(page)" role="button"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
         </p>
     </div>
 </div>
@@ -22,7 +22,7 @@
                 <li class="list-group-item active">Page Name
                 </li>
                 <li class="list-group-item" ng-repeat="page in pages">
-                    <a href="../../widget/templates/widget-list.view.client.html">{{page.name}}</a>
+                    <a href="#!/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">{{page.name}}</a>
                     <a href="#!/user/{{uid}}/website/{{wid}}/page/{{page._id}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                 </li>
             </ul>
@@ -37,7 +37,7 @@
                            id="name"
                            class="form-control"
                            placeholder="Page Name"
-                           value="Blog Post">
+                           ng-model="page.name">
                 </div>
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -46,10 +46,10 @@
                            id="title"
                            class="form-control"
                            placeholder="Page Title"
-                           value="Blogger">
+                           ng-model="page.description">
                 </div>
                 <div class="form-group">
-                    <a href="page-list.view.client.html"
+                    <a ng-click="deletePage()"
                        class="btn btn-danger btn-block"
                        role="button">Delete</a>
                 </div>
@@ -60,7 +60,7 @@
 <div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="../../user/templates/profile.view.client.html"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
+            <a href="#!/{{uid}}"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
         </p>
     </div>
 </div>
