@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Widget youtube</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../../vendor/img/logo.PNG">
-    <link rel="icon" href="../../vendor/img/logo.PNG">
-</head>
-<body>
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="widget-list.html"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
+            <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Edit Widget</div>
         <p class="navbar-text pull-right">
-            <a href="widget-list.html"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
+            <a ng-click="updateWidget(widget)" role="button"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
         </p>
     </div>
 </div>
@@ -35,7 +21,7 @@
                            id="name"
                            class="form-control"
                            placeholder="Name"
-                           value="Blog Post">
+                           ng-model="widget.name">
                 </div>
                 <div class="form-group">
                     <label for="text">Text</label>
@@ -44,7 +30,7 @@
                            id="text"
                            class="form-control"
                            placeholder="Text"
-                           value="US Senate">
+                           ng-model="widget.text">
                 </div>
                 <div class="form-group">
                     <label for="url">URL</label>
@@ -53,7 +39,7 @@
                            id="url"
                            class="form-control"
                            placeholder="url"
-                           value="www.google.com">
+                           ng-model="widget.url">
                 </div>
                 <div class="form-group">
                     <label for="width">Width</label>
@@ -62,10 +48,10 @@
                            id="width"
                            class="form-control"
                            placeholder="width"
-                           value="100%">
+                           ng-model="widget.width">
                 </div>
                 <div class="form-group">
-                    <a href="widget-list.html"
+                    <a ng-click="deleteWidget()"
                        class="btn btn-danger btn-block"
                        role="button">Delete</a>
                 </div>
@@ -76,9 +62,7 @@
 <div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-right"
-        ><a href="../../user/templates/profile.html"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
+        ><a href="#!/user/{{uid}}/"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
         </p>
     </div>
 </div>
-</body>
-</html>
