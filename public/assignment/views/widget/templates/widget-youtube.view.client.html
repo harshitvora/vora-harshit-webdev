@@ -1,9 +1,9 @@
 <div class="hv-widget">
     <div class=" hv-floating-icons pull-right">
-        <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
+        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
         <a href=""><span class="glyphicon glyphicon-menu-hamburger hv-icon-black"></span></a>
     </div>
     <div class="hv-youtube-wrapper">
-        <iframe class="hv-youtube-iframe" src="https://www.youtube.com/embed/-Kt0NfXlgBk" width="{{widget.width}}" height="{{widget.width}}" frameborder="0" allowfullscreen></iframe>
+        <iframe class="hv-youtube-iframe" src="{{model.trustUrl(widget.url)}}" width="{{widget.width}}" height="{{widget.width}}" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>

@@ -7,42 +7,55 @@
         $routeProvider
             .when("/", {
                 templateUrl: "views/user/templates/login.view.client.html",
-                controller: "loginController"})
+                controller: "loginController",
+                controllerAs: "model"})
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
-                controller: "loginController"})
+                controller: "loginController",
+                controllerAs: "model"})
             .when("/register", {
                 templateUrl: "views/user/templates/register.view.client.html",
-                controller: "registerController"})
+                controller: "registerController",
+                controllerAs: "model"})
             .when("/user/:uid", {
                 templateUrl: "views/user/templates/profile.view.client.html",
-                controller: "profileController"})
+                controller: "profileController",
+                controllerAs: "model"})
             .when("/user/:uid/website", {
                 templateUrl: "views/website/templates/website-list.view.client.html",
-                controller: "websiteListController"})
+                controller: "websiteListController",
+                controllerAs: "model"})
             .when("/user/:uid/website/new", {
                 templateUrl: "views/website/templates/website-new.view.client.html",
-                controller: "newWebsiteController"})
+                controller: "newWebsiteController",
+                controllerAs: "model"})
             .when("/user/:uid/website/:wid", {
                 templateUrl: "views/website/templates/website-edit.view.client.html",
-                controller: "editWebsiteController"})
+                controller: "editWebsiteController",
+                controllerAs: "model"})
             .when("/user/:uid/website/:wid/page", {
                 templateUrl: "views/page/templates/page-list.view.client.html",
-                controller: "pageListController"})
+                controller: "pageListController",
+                controllerAs: "model"})
             .when("/user/:uid/website/:wid/page/new", {
                 templateUrl: "views/page/templates/page-new.view.client.html",
-                controller: "newPageController"})
+                controller: "newPageController",
+                controllerAs: "model"})
             .when("/user/:uid/website/:wid/page/:pid", {
                 templateUrl: "views/page/templates/page-edit.view.client.html",
-                controller: "editPageController"})
+                controller: "editPageController",
+                controllerAs: "model"})
             .when("/user/:uid/website/:wid/page/:pid/widget", {
                 templateUrl: "views/widget/templates/widget-list.view.client.html",
-                controller: "widgetListController"})
+                controller: "widgetListController",
+                controllerAs: "model"})
             .when("/user/:uid/website/:wid/page/:pid/widget/new", {
                 templateUrl: "views/widget/templates/widget-chooser.view.client.html",
-                controller: "newWidgetController"})
+                controller: "newWidgetController",
+                controllerAs: "model"})
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
                 templateUrl: "views/widget/templates/widget-edit.view.client.html",
-                controller: "editWidgetController"})
+                controller: "editWidgetController",
+                controllerAs: "model"})
     }
 })();

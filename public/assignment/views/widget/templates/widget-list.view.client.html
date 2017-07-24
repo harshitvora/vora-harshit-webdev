@@ -1,17 +1,17 @@
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="#!/user/{{uid}}/website/{{wid}}/page"><span class="glyphicon glyphicon-chevron-left hv-icon-white pull-left"></span></a>
+            <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page"><span class="glyphicon glyphicon-chevron-left hv-icon-white pull-left"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Widgets</div>
         <p class="navbar-text pull-right">
-            <a href="#!/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><span class="glyphicon glyphicon-plus hv-icon-white pull-right"></span></a>
+            <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new"><span class="glyphicon glyphicon-plus hv-icon-white pull-right"></span></a>
         </p>
     </div>
 </div>
 <div class="container-fluid hv-container-overflow">
     <div class="col-md-6 col-md-offset-3 col-sm-12">
-        <div ng-repeat="widget in widgets">
+        <div ng-repeat="widget in model.widgets">
             <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING">
                     <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
@@ -33,7 +33,7 @@
             <a href="#"><span class="glyphicon glyphicon-eye-open hv-icon-white"></span></a>
         </p>
         <p class="navbar-text pull-right">
-            <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
+            <a href="#!/user/{{model.uid}}"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
         </p>
     </div>
 </div>

@@ -3,12 +3,12 @@
         .module("WebAppMaker")
         .controller("editWidgetController", editWidgetController);
 
-    function editWidgetController($scope, $routeParams, widgetService, $location) {
-        // var model = this;
+    function editWidgetController($routeParams, widgetService, $location) {
+        var model = this;
 
         //Event handles:
-        $scope.updateWidget = updateWidget;
-        $scope.deleteWidget = deleteWidget;
+        model.updateWidget = updateWidget;
+        model.deleteWidget = deleteWidget;
 
         var userId =  $routeParams["uid"];
         var websiteId =  $routeParams["wid"];
@@ -16,12 +16,12 @@
         var widgetId = $routeParams["wgid"];
 
         function init() {
-            $scope.uid = userId;
-            $scope.wid = websiteId;
-            $scope.pid = pageId;
-            $scope.wgid = widgetId;
+            model.uid = userId;
+            model.wid = websiteId;
+            model.pid = pageId;
+            model.wgid = widgetId;
             var widget = widgetService.findWidgetById(widgetId);
-            $scope.widget = widget;
+            model.widget = widget;
         }
         init();
 

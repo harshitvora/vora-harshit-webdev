@@ -1,7 +1,7 @@
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
-            <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
+            <a href="#!/user/{{model.uid}}"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
         </p>
         <div class="navbar-brand hv-text-white">Website list</div>
     </div>
@@ -9,13 +9,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
-            <div ng-show="successMessage" class="alert alert-success">{{successMessage}}</div>
+            <div ng-show="model.successMessage" class="alert alert-success">{{model.successMessage}}</div>
             <ul class="list-group">
                 <li class="list-group-item active">Website Name
-                    <a href="#!/user/{{uid}}/website/new"><span class="glyphicon glyphicon-plus pull-right hv-icon-white"></span></a></li>
-                <li class="list-group-item" ng-repeat="website in websites">
-                    <a href="#!/user/{{uid}}/website/{{website._id}}/page/">{{website.name}}</a>
-                    <a href="#!/user/{{uid}}/website/{{website._id}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                    <a href="#!/user/{{model.uid}}/website/new"><span class="glyphicon glyphicon-plus pull-right hv-icon-white"></span></a></li>
+                <li class="list-group-item" ng-repeat="website in model.websites">
+                    <a href="#!/user/{{model.uid}}/website/{{website._id}}/page/">{{website.name}}</a>
+                    <a href="#!/user/{{model.uid}}/website/{{website._id}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                 </li>
             </ul>
         </div>
@@ -24,7 +24,7 @@
 <div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="#!/user/{{uid}}"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
+            <a href="#!/user/{{model.uid}}"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
         </p>
     </div>
 </div>

@@ -4,25 +4,25 @@
         .controller("newPageController", newPageController);
 
     function newPageController($scope, $routeParams, pageService, $location) {
-        // var model = this;
+        var model = this;
 
         //Event handles:
-        $scope.createPage = createPage;
+        model.createPage = createPage;
 
         var userId =  $routeParams["uid"];
         var websiteId =  $routeParams["wid"];
 
         function init() {
-            $scope.uid = userId;
-            $scope.wid = websiteId;
-            $scope.pages = pageService.findPageByWebsiteId(websiteId);
+            model.uid = userId;
+            model.wid = websiteId;
+            model.pages = pageService.findPageByWebsiteId(websiteId);
         }
         init();
 
         function createPage(page) {
             var _page = pageService.createPage(websiteId, page);
             if(_page){
-                $scope.successMessage = "Page created!";
+                model.successMessage = "Page created!";
             }
             $location.url("/user/"+userId+"/website/"+websiteId+"/page");
 

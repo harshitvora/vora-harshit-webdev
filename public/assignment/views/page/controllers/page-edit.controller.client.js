@@ -3,23 +3,23 @@
         .module("WebAppMaker")
         .controller("editPageController", editPageController);
 
-    function editPageController($scope, $routeParams, pageService, $location) {
-        // var model = this;
+    function editPageController($routeParams, pageService, $location) {
+        var model = this;
 
         //Event handles:
-        $scope.updatePage = updatePage;
-        $scope.deletePage = deletePage;
+        model.updatePage = updatePage;
+        model.deletePage = deletePage;
 
         var userId =  $routeParams["uid"];
         var websiteId =  $routeParams["wid"];
         var pageId = $routeParams["pid"];
 
         function init() {
-            $scope.uid = userId;
-            $scope.wid = websiteId;
-            $scope.pages = pageService.findPageByWebsiteId(websiteId);
+            model.uid = userId;
+            model.wid = websiteId;
+            model.pages = pageService.findPageByWebsiteId(websiteId);
             var page = pageService.findPageById(pageId);
-            $scope.page = page;
+            model.page = page;
         }
         init();
 
