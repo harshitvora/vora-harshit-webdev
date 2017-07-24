@@ -12,6 +12,7 @@
         var pageId = $routeParams["pid"];
 
         model.trustUrl = trustUrl;
+        model.trustHtmlContent = trustHtmlContent;
 
         function init() {
             model.uid = userId;
@@ -23,7 +24,14 @@
 
         function trustUrl(url) {
             console.log($sce.trustAsResourceUrl(url));
-            return $sce.trustAsResourceUrl(url)
+            var youtubrUrl = "https://youtube.com/embed/";
+            var urlParts = url.split("/");
+            youtubrUrl += urlParts[urlParts.length - 1];
+            return $sce.trustAsResourceUrl(youtubrUrl);
+        }
+
+        function trustHtmlContent(htmlContent) {
+            return $sce.trustAsHtml(htmlContent);
         }
     }
 })();

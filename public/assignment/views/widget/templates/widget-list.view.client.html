@@ -22,6 +22,8 @@
                 <div ng-switch-when="YOUTUBE">
                     <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
                 </div>
+                <div ng-switch-when="HTML" ng-bind-html="model.trustHtmlContent(widget.text)">
+                </div>
             </div>
         </div>
     </div>
