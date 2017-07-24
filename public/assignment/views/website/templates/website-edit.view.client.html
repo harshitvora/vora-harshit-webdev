@@ -18,14 +18,7 @@
 <div class="container-fluid">
     <div class="row">
         <div id="hide" class="col-md-4 hidden-sm hidden-xs hv-overflow">
-            <ul class="list-group">
-                <li class="list-group-item active">Website Name
-                </li>
-                <li class="list-group-item" ng-repeat="w in model.websites">
-                    <a href="#!/user/{{model.uid}}/website/{{model.website._id}}/page/">{{w.name}}</a>
-                    <a href="#!/user/{{model.uid}}/website/{{w._id}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
-                </li>
-            </ul>
+            <div ng-include="'views/website/templates/website-list.component.client.html'"></div>
         </div>
         <div id="show" class="col-md-8 col-xs-12 hv-overflow-offset">
             <form action=""

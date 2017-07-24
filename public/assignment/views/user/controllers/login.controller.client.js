@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("loginController", loginController)
+        .controller("loginController", loginController);
 
-    function loginController($location, userService) {
+    function loginController($location, userService, $rootScope) {
         var model = this;
 
         //Event handles:
@@ -20,6 +20,7 @@
                 model.errorMessage = "User not found!";
             }
             else {
+                $rootScope.currentUser = _user;
                 $location.url("user/"+_user._id);
             }
         }
