@@ -3,12 +3,13 @@
         .module("WebAppMaker")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, userService, $location) {
+    function profileController($routeParams, userService, $location, $rootScope) {
         var model = this;
 
         //Event handles:
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
+        model.logout = logout;
 
         function init() {
             var userId = $routeParams["uid"];
@@ -31,6 +32,14 @@
         function deleteUser(userId) {
             userService.deleteUser(userId);
             $location.url("/login");
+        }
+
+        function logout() {
+            if($rootScope.currentUser){
+                delete $rootScope.currentUser;
+                $location.url("/login");
+            }
+
         }
     }
 })();
