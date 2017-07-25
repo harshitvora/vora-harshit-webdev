@@ -18,7 +18,7 @@
             model.uid = userId;
             model.wid = websiteId;
             model.websites = websiteService.findWebsitesByUser(userId);
-            var website = websiteService.findWebsiteById(websiteId);
+            var website = Object.assign({}, websiteService.findWebsiteById(websiteId));
             model.website = website;
         }
         init();

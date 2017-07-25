@@ -18,7 +18,7 @@
             model.uid = userId;
             model.wid = websiteId;
             model.pages = pageService.findPageByWebsiteId(websiteId);
-            var page = pageService.findPageById(pageId);
+            var page = Object.assign({}, pageService.findPageById(pageId));
             model.page = page;
         }
         init();

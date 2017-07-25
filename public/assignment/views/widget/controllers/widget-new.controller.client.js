@@ -22,6 +22,7 @@
 
         function createWidget(widgetType) {
             var widget = {widgetType: widgetType};
+
             _widget = widgetService.createWidget(pageId, widget);
             if(_widget){
                 model.successMessage = "Widget created!";
