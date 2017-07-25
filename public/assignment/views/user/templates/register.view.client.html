@@ -1,13 +1,14 @@
 
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
-        <div class="navbar-brand hv-text-white"><a href="#">Assignment</a></div>
+        <div class="navbar-brand hv-text-white"><a href="#">Website Builder</a></div>
     </div>
 </div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-md-4 col-md-offset-4">
             <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+            <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
             <h1>Register</h1>
             <form action=""
                   method="post">
@@ -33,6 +34,7 @@
                     <label for="veriyPassword">Verify password</label>
                     <input type="password"
                            name="verifyPassword"
+                           ng-model="model.user.verifyPassword"
                            id="veriyPassword"
                            placeholder="verify password"
                            class="form-control">
