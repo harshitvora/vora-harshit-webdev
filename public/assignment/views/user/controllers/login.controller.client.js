@@ -15,14 +15,18 @@
         init();
 
         function login(user) {
-            var _user = userService.findUserByCredentials(user.username, user.password);
-            if(_user === null){
-                model.errorMessage = "Wrong username or password!";
-            }
-            else {
-                $rootScope.currentUser = _user;
-                $location.url("user/"+_user._id);
-            }
+            var promise = userService.findUserByCredentials(user.username, user.password);
+            promise.then(function (response) {
+                var _user = response.data;
+                if(_user === "0"){
+                    model.errorMessage = "Wrong username or password!";
+                }
+                else {
+                    $rootScope.currentUser = _user;
+                    $location.url("user/"+_user._id);
+                }
+            });
+
         }
     }
 })();
