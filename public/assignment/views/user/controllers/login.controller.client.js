@@ -17,7 +17,7 @@
         function login(user) {
             var _user = userService.findUserByCredentials(user.username, user.password);
             if(_user === null){
-                model.errorMessage = "User not found!";
+                model.errorMessage = "Wrong username or password!";
             }
             else {
                 $rootScope.currentUser = _user;
