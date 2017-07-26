@@ -6,13 +6,14 @@
     function registerController($location, userService, $rootScope) {
         var model = this;
 
+        //Event handles:
+        model.register = register;
+
         function init() {
+            $rootScope.title = "Register";
 
         }
         init();
-
-        //Event handles:
-        model.register = register;
 
         function register(user) {
             var _user = userService.findUserByUsername(user.username);

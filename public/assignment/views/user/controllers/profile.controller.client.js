@@ -15,6 +15,7 @@
             var userId = $routeParams["uid"];
             var _user = userService.findUserByUserId(userId);
             model.user = _user;
+            $rootScope.title = "Profile";
         }
         init();
 

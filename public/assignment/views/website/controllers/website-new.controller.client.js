@@ -3,18 +3,18 @@
         .module("WebAppMaker")
         .controller("newWebsiteController", newWebsiteController)
 
-    function newWebsiteController($routeParams, websiteService, $location) {
+    function newWebsiteController($routeParams, websiteService, $location, $rootScope) {
         var model = this;
 
         //Event handles:
         model.createWebsite = createWebsite;
-
 
         var userId =  $routeParams["uid"];
         model.uid = userId;
 
         function init() {
             model.websites = websiteService.findWebsitesByUser(userId);
+            $rootScope.title = "New Website";
         }
         init();
 

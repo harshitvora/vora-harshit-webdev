@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("newWidgetController", newWidgetController);
 
-    function newWidgetController($routeParams, widgetService, $location) {
+    function newWidgetController($routeParams, widgetService, $location, $rootScope) {
         var model = this;
 
         //Event handles:
@@ -17,6 +17,7 @@
             model.uid = userId;
             model.wid = websiteId;
             model.pid = pageId;
+            $rootScope.title = "New Widget";
         }
         init();
 

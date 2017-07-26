@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("newPageController", newPageController);
 
-    function newPageController($scope, $routeParams, pageService, $location) {
+    function newPageController($rootScope, $routeParams, pageService, $location) {
         var model = this;
 
         //Event handles:
@@ -16,6 +16,7 @@
             model.uid = userId;
             model.wid = websiteId;
             model.pages = pageService.findPageByWebsiteId(websiteId);
+            $rootScope.title = "New page";
         }
         init();
 

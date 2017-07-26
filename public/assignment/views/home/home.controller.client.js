@@ -6,10 +6,10 @@
         var model = this;
 
         // Event handles:
-
         model.logout = logout;
 
         function init() {
+            $rootScope.title = "Home";
 
         }
         init();

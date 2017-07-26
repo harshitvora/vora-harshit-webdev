@@ -3,10 +3,9 @@
         .module("WebAppMaker")
         .controller("pageListController", pageListController);
 
-    function pageListController($scope, $routeParams, pageService) {
+    function pageListController($rootScope, $routeParams, pageService) {
         var model = this;
 
-        //Event handles:
         var userId =  $routeParams["uid"];
         var websiteId =  $routeParams["wid"];
 
@@ -14,6 +13,7 @@
             model.uid = userId;
             model.wid = websiteId;
             model.pages = pageService.findPageByWebsiteId(websiteId);
+            $rootScope.title = "Pages";
         }
         init();
     }

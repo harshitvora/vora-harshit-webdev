@@ -3,22 +3,23 @@
         .module("WebAppMaker")
         .controller("widgetListController", widgetListController);
 
-    function widgetListController($routeParams, widgetService, $sce) {
+    function widgetListController($routeParams, widgetService, $sce, $rootScope) {
         var model = this;
 
         //Event handles:
+        model.trustUrl = trustUrl;
+        model.trustHtmlContent = trustHtmlContent;
+
         var userId =  $routeParams["uid"];
         var websiteId =  $routeParams["wid"];
         var pageId = $routeParams["pid"];
-
-        model.trustUrl = trustUrl;
-        model.trustHtmlContent = trustHtmlContent;
 
         function init() {
             model.uid = userId;
             model.wid = websiteId;
             model.pid = pageId;
             model.widgets = widgetService.findWidgetsByPageId(pageId);
+            $rootScope.title = "Widget list";
         }
         init();
 

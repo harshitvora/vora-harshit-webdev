@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("editWidgetController", editWidgetController);
 
-    function editWidgetController($routeParams, widgetService, $location) {
+    function editWidgetController($routeParams, widgetService, $location, $rootScope) {
         var model = this;
 
         //Event handles:
@@ -22,6 +22,7 @@
             model.wgid = widgetId;
             var widget = widgetService.findWidgetById(widgetId);
             model.widget = widget;
+            $rootScope.title = "Edit Widget";
         }
         init();
 

@@ -3,15 +3,15 @@
         .module("WebAppMaker")
         .controller("websiteListController", websiteListController)
 
-    function websiteListController($routeParams, websiteService) {
+    function websiteListController($routeParams, websiteService, $rootScope) {
         var model = this;
 
-        //Event handles:
         var userId =  $routeParams["uid"];
 
         function init() {
             model.uid = userId;
             model.websites = websiteService.findWebsitesByUser(userId);
+            $rootScope.title = "Website list";
         }
         init();
     }

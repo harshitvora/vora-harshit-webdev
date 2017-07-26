@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("editPageController", editPageController);
 
-    function editPageController($routeParams, pageService, $location) {
+    function editPageController($routeParams, pageService, $location, $rootScope) {
         var model = this;
 
         //Event handles:
@@ -20,6 +20,7 @@
             model.pages = pageService.findPageByWebsiteId(websiteId);
             var page = Object.assign({}, pageService.findPageById(pageId));
             model.page = page;
+            $rootScope.title = "Edit page";
         }
         init();
 
