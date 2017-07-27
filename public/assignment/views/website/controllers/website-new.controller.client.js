@@ -13,17 +13,25 @@
         model.uid = userId;
 
         function init() {
-            model.websites = websiteService.findWebsitesByUser(userId);
+            websiteService
+                .findWebsitesByUser(userId)
+                .then(function (response) {
+                    model.websites = response.data;
+                });
             $rootScope.title = "New Website";
         }
         init();
 
         function createWebsite(website){
-            var _website = websiteService.createWebsite(userId, website);
-            if(_website){
-                model.successMessage = "Website created!";
-            }
-            $location.url("/user/"+userId+"/website");
+            websiteService
+                .createWebsite(userId, website)
+                .then(function (response) {
+                    var _website = response.data;
+                    if(_website){
+                        model.successMessage = "Website created!";
+                    }
+                    $location.url("/user/"+userId+"/website");
+                });
         }
     }
 })();

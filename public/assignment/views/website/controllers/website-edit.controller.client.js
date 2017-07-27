@@ -17,21 +17,31 @@
         function init() {
             model.uid = userId;
             model.wid = websiteId;
-            model.websites = websiteService.findWebsitesByUser(userId);
-            var website = Object.assign({}, websiteService.findWebsiteById(websiteId));
-            model.website = website;
+            websiteService.findWebsitesByUser(userId)
+                .then(function (response) {
+                    model.websites = response.data;
+                });
+            websiteService.findWebsiteById(websiteId)
+                .then(function (response) {
+                    var website = Object.assign({}, response.data);
+                    model.website = website;
+                });
             $rootScope.title = "Edit Website";
         }
         init();
 
         function updateWebsite(website) {
-            var _website = websiteService.updateWebsite(websiteId, website);
-            $location.url("/user/"+userId+"/website");
+            websiteService.updateWebsite(websiteId, website)
+                .then(function (response) {
+                    $location.url("/user/"+userId+"/website");
+                });
         }
 
         function deleteWebsite() {
-            websiteService.deleteWebsite(websiteId);
-            $location.url("/user/"+userId+"/website");
+            websiteService.deleteWebsite(websiteId)
+                .then(function (response) {
+                    $location.url("/user/"+userId+"/website");
+                });
         }
     }
 })();

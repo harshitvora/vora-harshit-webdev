@@ -14,33 +14,33 @@
         var userId = $routeParams["uid"];
 
         function init() {
-            var promise = userService.findUserByUserId(userId);
-            promise.then(function (response) {
-                model.user = response.data;
-            });
+            userService.findUserByUserId(userId)
+                .then(function (response) {
+                    model.user = response.data;
+                });
             $rootScope.title = "Profile";
         }
         init();
 
         function updateUser(user) {
-            var promise = userService.updateUser(user._id, user);
-            promise.then(function (response) {
-                var _user = response.data;
-                if(!_user){
-                    model.error = "Error updating profile";
-                }
-                else{
-                    model.successMessage = "Profile updated!";
-                    $location.url("/user/"+_user._id);
-                }
-            });
+            userService.updateUser(user._id, user)
+                .then(function (response) {
+                    var _user = response.data;
+                    if(!_user){
+                        model.error = "Error updating profile";
+                    }
+                    else{
+                        model.successMessage = "Profile updated!";
+                        $location.url("/user/"+_user._id);
+                    }
+                });
         }
 
         function deleteUser(userId) {
-            var promise = userService.deleteUser(userId);
-            promise.then(function (response) {
-                $location.url("/login");
-            });
+            userService.deleteUser(userId)
+                .then(function (response) {
+                    $location.url("/login");
+                });
         }
 
         function logout() {

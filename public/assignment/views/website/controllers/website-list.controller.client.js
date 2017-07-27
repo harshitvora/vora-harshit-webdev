@@ -10,7 +10,10 @@
 
         function init() {
             model.uid = userId;
-            model.websites = websiteService.findWebsitesByUser(userId);
+            websiteService.findWebsitesByUser(userId)
+                .then(function (response) {
+                    model.websites = response.data;
+                });
             $rootScope.title = "Website list";
         }
         init();

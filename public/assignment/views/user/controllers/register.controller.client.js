@@ -15,28 +15,27 @@
         init();
 
         function register(user) {
-            var promise = userService.findUserByUsername(user.username);
-            promise.then(function (response) {
-                _user = response.data;
-                if(!_user){
-                    if(user.password === user.verifyPassword){
-                        var newUser = {username: user.username, password: user.password};
-                        var promise2 = userService.createUser(newUser);
-                        promise2.then(function (response) {
-                            newUser = response.data;
-                            $rootScope.currentUser = newUser;
-                            $location.url("/user/"+newUser._id);
-                        });
+            userService.findUserByUsername(user.username)
+                .then(function (response) {
+                    _user = response.data;
+                    if(!_user){
+                        if(user.password === user.verifyPassword){
+                            var newUser = {username: user.username, password: user.password};
+                            return userService.createUser(newUser)
+                        }
+                        else {
+                            model.errorMessage = "Passwords do not match!";
+                        }
                     }
-                    else {
-                        model.errorMessage = "Passwords do not match!";
+                    else{
+                        model.error = "User already exists!";
                     }
-                }
-                else{
-                    model.error = "User already exists!";
-                }
-            });
-
+                })
+                .then(function (response) {
+                    newUser = response.data;
+                    $rootScope.currentUser = newUser;
+                    $location.url("/user/"+newUser._id);
+                });
         }
     }
 })();
