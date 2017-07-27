@@ -10,8 +10,8 @@ var pages = [
     { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }];
 
 // http handlers:
-app.post("/api/website/:websitId/page", createPage);
-app.get("/api/website/:websitId/page", findAllPagesForWebsite);
+app.post("/api/website/:websiteId/page", createPage);
+app.get("/api/website/:websiteId/page", findAllPagesForWebsite);
 app.get("/api/page/:pageId", findPageById);
 app.put("/api/page/:pageId", updatePage);
 app.delete("/api/page/:pageId", deletePage);
@@ -28,19 +28,19 @@ function createPage(req, response) {
 
 function findAllPagesForWebsite(req, response) {
     var websiteId = req.params.websiteId;
-    var pages = [];
+    var _pages = [];
 
-    for(var p in page){
+    for(var p in pages){
         if(pages[p].websiteId === websiteId){
-            pages.push(pages[p]);
+            _pages.push(pages[p]);
         }
     }
-    response.json(pages);
+    response.json(_pages);
 }
 
 function findPageById(req, response) {
     var pageId = req.params.pageId;
-    for(var w in websites){
+    for(var p in pages){
         if(pages[p]._id === pageId){
             response.send(pages[p]);
         }

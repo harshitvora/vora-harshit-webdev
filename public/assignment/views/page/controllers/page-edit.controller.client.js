@@ -17,23 +17,27 @@
         function init() {
             model.uid = userId;
             model.wid = websiteId;
-            model.pages = pageService.findPageByWebsiteId(websiteId);
-            var page = Object.assign({}, pageService.findPageById(pageId));
-            model.page = page;
+            pageService.findPageByWebsiteId(websiteId).then(function (response) {
+                model.pages = response.data;
+            });
+            pageService.findPageById(pageId).then(function (response) {
+                model.page = Object.assign({}, response.data);
+            });
             $rootScope.title = "Edit page";
         }
         init();
 
         function updatePage(page) {
-            var _page = pageService.updatePage(pageId, page);
-            $location.url("/user/"+userId+"/website/"+websiteId+"/page");
-
+            pageService.updatePage(pageId, page).then(function (response) {
+                var _page = response.data;
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+            });
         }
 
         function deletePage() {
-            pageService.deletePage(pageId);
-            $location.url("/user/"+userId+"/website/"+websiteId+"/page");
-
+            pageService.deletePage(pageId).then(function (response) {
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+            });
         }
     }
 })();

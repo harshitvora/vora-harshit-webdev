@@ -12,7 +12,10 @@
         function init() {
             model.uid = userId;
             model.wid = websiteId;
-            model.pages = pageService.findPageByWebsiteId(websiteId);
+            pageService.findPageByWebsiteId(websiteId)
+                .then(function (response) {
+                    model.pages = response.data;
+                });
             $rootScope.title = "Pages";
         }
         init();
