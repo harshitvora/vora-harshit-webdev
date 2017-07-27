@@ -18,7 +18,10 @@
             model.uid = userId;
             model.wid = websiteId;
             model.pid = pageId;
-            model.widgets = widgetService.findWidgetsByPageId(pageId);
+            widgetService.findWidgetsByPageId(pageId)
+                .then(function (response) {
+                    model.widgets = response.data;
+                });
             $rootScope.title = "Widget list";
         }
         init();

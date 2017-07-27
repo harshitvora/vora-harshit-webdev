@@ -23,12 +23,13 @@
 
         function createWidget(widgetType) {
             var widget = {widgetType: widgetType};
-            _widget = widgetService.createWidget(pageId, widget);
-            if(_widget){
-                model.successMessage = "Widget created!";
-            }
-            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+'/widget/'+_widget._id);
-
+            widgetService.createWidget(pageId, widget).then(function (response) {
+                var _widget = response.data;
+                if(_widget){
+                    model.successMessage = "Widget created!";
+                }
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+'/widget/'+_widget._id);
+            });
         }
     }
 })();

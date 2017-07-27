@@ -20,20 +20,23 @@
             model.wid = websiteId;
             model.pid = pageId;
             model.wgid = widgetId;
-            var widget = widgetService.findWidgetById(widgetId);
-            model.widget = widget;
+            widgetService.findWidgetById(widgetId).then(function (response) {
+                model.widget = response.data;
+            });
             $rootScope.title = "Edit Widget";
         }
         init();
 
         function updateWidget(widget) {
-            var _widget = widgetService.updateWidget(widgetId, widget);
-            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            widgetService.updateWidget(widgetId, widget).then(function (response) {
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            });
         }
 
         function deleteWidget() {
-            widgetService.deleteWidget(widgetId);
-            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            widgetService.deleteWidget(widgetId).then(function (response) {
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            });
         }
     }
 })();
