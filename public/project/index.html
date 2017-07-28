@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CheckedIn" class="ng-scope">
 <head>
     <meta charset="UTF-8">
-    <title>Assignment</title>
+    <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet"/>
-    <link href="../assignment/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="../vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="../vendor/angular/angular-route.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript" src="views/home/home.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/login.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/profile.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/register.controller.client.js"></script>
+    <script
+            src="http://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
+            integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
+            crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $( "#sortable" ).sortable();
+        });
+    </script>
+    <link href="css/style.css" rel="stylesheet">
     <link rel="shortcut icon" href="../vendor/img/logo.PNG">
     <link rel="icon" href="../vendor/img/logo.PNG">
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
-    <div class="container-fluid">
-        <div class="navbar-brand hv-text-white" ><a href="../">Project</a></div>
-        <div class="navbar-text pull-right hv-text-white">
-            <a href="user/login.html">Login</a>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
-            <p>Project home page</p>
-            <p><a href="user/login.html">Login Here</a></p>
-        </div>
-    </div>
-</div>
+<div ng-view class="ng-scope"></div>
 </body>
 </html>

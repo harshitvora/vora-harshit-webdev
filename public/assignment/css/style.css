@@ -121,3 +121,8 @@ body{
     margin: auto;
     border-radius: 50%;
 }
+
+.hv-widget-list {
+    padding: 0;
+    list-style-type: none;
+}
