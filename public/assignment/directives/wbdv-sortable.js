@@ -5,7 +5,8 @@
 
     function widgetListDirective() {
         function linkFunction(scope, element, attrs) {
-            $(element).sortable();
+            $(element).sortable({
+                handle: ".sort-handle"});
         }
         return{
             link: linkFunction

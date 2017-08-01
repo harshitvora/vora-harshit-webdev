@@ -3,7 +3,6 @@
         <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
         <a href=""><span class="sort-handle glyphicon glyphicon-menu-hamburger hv-icon-black"></span></a>
     </div>
-    <div class="hv-youtube-wrapper">
-        <iframe class="hv-youtube-iframe" src="{{model.trustUrl(widget.url)}}" width="{{widget.width}}" height="{{widget.width}}" frameborder="0" allowfullscreen></iframe>
+    <div ng-bind-html="model.trustHtmlContent(widget.text)">
     </div>
 </div>
