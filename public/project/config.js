@@ -21,5 +21,13 @@
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController",
                 controllerAs: "model"})
+            .when("/poc", {
+                templateUrl: "views/poc/search.view.client.html",
+                controller: "searchController",
+                controllerAs: "model"})
+            .when("/poc/venue/:vid", {
+                templateUrl: "views/poc/detail.view.client.html",
+                controller: "detailController",
+                controllerAs: "model"})
     }
 })();

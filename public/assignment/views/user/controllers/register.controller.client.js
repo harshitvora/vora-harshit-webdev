@@ -21,20 +21,22 @@
                     if(!_user){
                         if(user.password === user.verifyPassword){
                             var newUser = {username: user.username, password: user.password};
-                            return userService.createUser(newUser)
+                            return userService.createUser(newUser);
                         }
                         else {
-                            model.errorMessage = "Passwords do not match!";
+                            model.error = "Passwords do not match!";
                         }
                     }
                     else{
                         model.error = "User already exists!";
                     }
+                    return;
                 })
                 .then(function (response) {
                     newUser = response.data;
                     $rootScope.currentUser = newUser;
                     $location.url("/user/"+newUser._id);
+                    return;
                 });
         }
     }

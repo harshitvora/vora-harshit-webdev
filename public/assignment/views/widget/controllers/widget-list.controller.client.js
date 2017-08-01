@@ -27,7 +27,6 @@
         init();
 
         function trustUrl(url) {
-            console.log($sce.trustAsResourceUrl(url));
             var youtubrUrl = "https://youtube.com/embed/";
             var urlParts = url.split("/");
             youtubrUrl += urlParts[urlParts.length - 1];
