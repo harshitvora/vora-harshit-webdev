@@ -1,6 +1,3 @@
-
-
-
 <div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
     <div class="container-fluid">
         <p class="navbar-text pull-left">
@@ -12,24 +9,23 @@
         </p>
     </div>
 </div>
-<widget-list></widget-list>
 <div class="container-fluid hv-container-overflow">
     <div class="col-md-6 col-md-offset-3 col-sm-12">
-        <div ng-repeat="widget in model.widgets">
-            <ul id="sortable" class="hv-widget-list" ng-switch="widget.widgetType">
-                <li ng-switch-when="HEADING">
+        <ul id="sortable" class="hv-widget-list" widget-list>
+            <li ng-repeat="widget in model.widgets" ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
                     <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
-                </li>
-                <li ng-switch-when="IMAGE">
+                </div>
+                <div ng-switch-when="IMAGE">
                     <ng-include src="'views/widget/templates/widget-image.view.client.html'">
-                </li>
-                <li ng-switch-when="YOUTUBE">
+                </div>
+                <div ng-switch-when="YOUTUBE">
                     <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
-                </li>
-                <li ng-switch-when="HTML" ng-bind-html="model.trustHtmlContent(widget.text)">
-                </li>
-            </ul>
-        </div>
+                </div>
+                <div ng-switch-when="HTML" ng-bind-html="model.trustHtmlContent(widget.text)">
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 <div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">

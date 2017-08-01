@@ -4,9 +4,8 @@
         .directive("widgetList", widgetListDirective);
 
     function widgetListDirective() {
-        function linkFunction(scope, element) {
-
-
+        function linkFunction(scope, element, attrs) {
+            $(element).sortable();
         }
         return{
             link: linkFunction
