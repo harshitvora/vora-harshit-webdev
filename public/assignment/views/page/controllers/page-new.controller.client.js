@@ -16,7 +16,7 @@
             model.uid = userId;
             model.wid = websiteId;
             pageService.findPageByWebsiteId(websiteId).then(function (response) {
-                model.pages = response.data;
+                model.pages = response;
             });
             $rootScope.title = "New page";
         }
@@ -24,7 +24,7 @@
 
         function createPage(page) {
             pageService.createPage(websiteId, page).then(function (response) {
-                var _page = response.data;
+                var _page = response;
                 if(_page){
                     model.successMessage = "Page created!";
                 }

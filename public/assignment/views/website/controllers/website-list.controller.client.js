@@ -12,7 +12,7 @@
             model.uid = userId;
             websiteService.findWebsitesByUser(userId)
                 .then(function (response) {
-                    model.websites = response.data;
+                    model.websites = response;
                 });
             $rootScope.title = "Website list";
         }

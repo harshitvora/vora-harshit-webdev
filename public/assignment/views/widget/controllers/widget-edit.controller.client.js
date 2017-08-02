@@ -21,7 +21,7 @@
             model.pid = pageId;
             model.wgid = widgetId;
             widgetService.findWidgetById(widgetId).then(function (response) {
-                model.widget = response.data;
+                model.widget = response;
             });
             $rootScope.title = "Edit Widget";
         }

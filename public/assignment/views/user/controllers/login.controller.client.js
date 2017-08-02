@@ -17,7 +17,7 @@
         function login(user) {
             userService.findUserByCredentials(user.username, user.password)
                 .then(function (response) {
-                    var _user = response.data;
+                    var _user = response;
                     if(_user === "0"){
                         model.errorMessage = "Wrong username or password!";
                     }

@@ -17,7 +17,7 @@
         function register(user) {
             userService.findUserByUsername(user.username)
                 .then(function (response) {
-                    _user = response.data;
+                    _user = response;
                     if(!_user){
                         if(user.password === user.verifyPassword){
                             var newUser = {username: user.username, password: user.password};
@@ -33,7 +33,7 @@
                     return;
                 })
                 .then(function (response) {
-                    newUser = response.data;
+                    newUser = response;
                     $rootScope.currentUser = newUser;
                     $location.url("/user/"+newUser._id);
                     return;

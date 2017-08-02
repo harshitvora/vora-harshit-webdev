@@ -19,11 +19,11 @@
             model.wid = websiteId;
             websiteService.findWebsitesByUser(userId)
                 .then(function (response) {
-                    model.websites = response.data;
+                    model.websites = response;
                 });
             websiteService.findWebsiteById(websiteId)
                 .then(function (response) {
-                    var website = Object.assign({}, response.data);
+                    var website = Object.assign({}, response);
                     model.website = website;
                 });
             $rootScope.title = "Edit Website";

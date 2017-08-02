@@ -13,24 +13,39 @@
 
         function createPage(websiteId, page) {
             var url = "/api/website/"+websiteId+"/page";
-            return $http.post(url ,page);
+            return $http.post(url ,page)
+                .then(function (response) {
+                return response.data;
+            });
         }
 
         function findPageByWebsiteId(websiteId) {
             var url = "/api/website/"+websiteId+"/page";
-            return $http.get(url);
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findPageById(pageId) {
-            return $http.get("/api/page/"+pageId);
+            return $http.get("/api/page/"+pageId)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function updatePage(pageId, page) {
-            return $http.put("/api/page/"+pageId, page);
+            return $http.put("/api/page/"+pageId, page)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function deletePage(pageId) {
-            return $http.delete("/api/page/"+pageId);
+            return $http.delete("/api/page/"+pageId)
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }
 })();

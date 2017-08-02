@@ -16,29 +16,47 @@
 
         function findUserByCredentials(username, password) {
             var url = "/api/user?username="+username+"&password="+password;
-            return $http.get(url);
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findUserByUserId(userId) {
-            return $http.get("/api/user/"+userId);
+            return $http.get("/api/user/"+userId)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findUserByUsername(username) {
-            return $http.get("/api/user?username=" +username);
+            return $http.get("/api/user?username=" +username)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function createUser(user) {
             var url = "/api/user";
-            return $http.post(url,user);
+            return $http.post(url,user)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function updateUser(userId, user) {
             var url = "/api/user/"+userId;
-            return $http.put(url, user);
+            return $http.put(url, user)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function deleteUser(userId) {
-            return $http.delete("/api/user/"+userId);
+            return $http.delete("/api/user/"+userId)
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }
 })();

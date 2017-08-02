@@ -18,10 +18,10 @@
             model.uid = userId;
             model.wid = websiteId;
             pageService.findPageByWebsiteId(websiteId).then(function (response) {
-                model.pages = response.data;
+                model.pages = response;
             });
             pageService.findPageById(pageId).then(function (response) {
-                model.page = Object.assign({}, response.data);
+                model.page = Object.assign({}, response);
             });
             $rootScope.title = "Edit page";
         }
@@ -29,7 +29,7 @@
 
         function updatePage(page) {
             pageService.updatePage(pageId, page).then(function (response) {
-                var _page = response.data;
+                var _page = response;
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page");
             });
         }

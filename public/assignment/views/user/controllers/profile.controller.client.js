@@ -16,7 +16,7 @@
         function init() {
             userService.findUserByUserId(userId)
                 .then(function (response) {
-                    model.user = response.data;
+                    model.user = response;
                 });
             $rootScope.title = "Profile";
         }
@@ -25,7 +25,7 @@
         function updateUser(user) {
             userService.updateUser(user._id, user)
                 .then(function (response) {
-                    var _user = response.data;
+                    var _user = response;
                     if(!_user){
                         model.error = "Error updating profile";
                     }

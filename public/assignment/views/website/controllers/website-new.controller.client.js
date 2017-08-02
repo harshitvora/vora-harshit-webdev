@@ -16,7 +16,7 @@
             websiteService
                 .findWebsitesByUser(userId)
                 .then(function (response) {
-                    model.websites = response.data;
+                    model.websites = response;
                 });
             $rootScope.title = "New Website";
         }
@@ -26,7 +26,7 @@
             websiteService
                 .createWebsite(userId, website)
                 .then(function (response) {
-                    var _website = response.data;
+                    var _website = response;
                     if(_website){
                         model.successMessage = "Website created!";
                     }

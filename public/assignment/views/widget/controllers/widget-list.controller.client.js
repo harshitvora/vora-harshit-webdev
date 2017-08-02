@@ -20,7 +20,7 @@
             model.pid = pageId;
             widgetService.findWidgetsByPageId(pageId)
                 .then(function (response) {
-                    model.widgets = response.data;
+                    model.widgets = response;
                 });
             $rootScope.title = "Widget list";
         }

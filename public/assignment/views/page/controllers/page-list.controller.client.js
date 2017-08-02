@@ -14,7 +14,7 @@
             model.wid = websiteId;
             pageService.findPageByWebsiteId(websiteId)
                 .then(function (response) {
-                    model.pages = response.data;
+                    model.pages = response;
                 });
             $rootScope.title = "Pages";
         }
