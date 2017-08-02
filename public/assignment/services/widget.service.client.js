@@ -10,6 +10,7 @@
         this.findWidgetById = findWidgetById;
         this.updateWidget = updateWidget;
         this.deleteWidget = deleteWidget;
+        this.saveWidgetIndex = saveWidgetIndex;
 
         function createWidget(pageId, widget) {
             var url = "/api/page/"+pageId+"/widget";
@@ -34,6 +35,11 @@
         function deleteWidget(widgetId) {
             var url = "/api/widget/"+widgetId;
             return $http.delete(url);
+        }
+
+        function saveWidgetIndex(startIndex, endIndex, pageId) {
+            var url = "/api/page/"+pageId+"/widget?initial="+startIndex+"&final="+endIndex;
+            return $http.put(url);
         }
     }
 })();
