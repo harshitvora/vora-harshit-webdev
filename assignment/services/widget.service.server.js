@@ -29,7 +29,6 @@ app.put("/api/page/:pageId/widget", updateWidgetIndex);
 function createWidget(req, response) {
     var widget = req.body;
     var pageId = req.params.pageId;
-    widget._id = (new Date()).getTime() + "";
     widget.pageId = pageId;
     widgets.push(widget);
     response.send(widget);
