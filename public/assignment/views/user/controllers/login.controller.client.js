@@ -18,7 +18,7 @@
             userService.findUserByCredentials(user.username, user.password)
                 .then(function (response) {
                     var _user = response;
-                    if(_user === "0"){
+                    if(!_user){
                         model.errorMessage = "Wrong username or password!";
                     }
                     else {

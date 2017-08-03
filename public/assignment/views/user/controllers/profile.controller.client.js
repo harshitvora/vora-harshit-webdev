@@ -25,13 +25,12 @@
         function updateUser(user) {
             userService.updateUser(user._id, user)
                 .then(function (response) {
-                    var _user = response;
-                    if(!_user){
-                        model.error = "Error updating profile";
+                    if(!response){
+                        model.error = "Error updating profile!";
                     }
                     else{
                         model.successMessage = "Profile updated!";
-                        $location.url("/user/"+_user._id);
+                        $location.url("/user/"+user._id);
                     }
                 });
         }
