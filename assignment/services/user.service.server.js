@@ -13,30 +13,29 @@ app.post("/api/user", createUser);
 app.delete("/api/user/:userId", deleteUser);
 app.put("/api/user/:userId", updateUser);
 
-function getAllUsers(req, response) {
+function getAllUsers(req, res) {
     userModel.getAllUsers()
         .then(function (users) {
-            response.json(users);
+            res.json(users);
         })
 }
 
-function createUser(req, response) {
+function createUser(req, res) {
     var user = req.body;
     userModel.createUser(user)
         .then(function (user) {
-            console.log(user);
-            response.json(user);
+            res.json(user);
         })
 }
 
-function findUserById(req, response) {
+function findUserById(req, res) {
     userModel.findUserById(req.params.userId)
         .then(function (user) {
-            response.json(user);
+            res.json(user);
         })
 }
 
-function findUserByCredentials(req, response) {
+function findUserByCredentials(req, res) {
 
     var username = req.query.username;
     var password = req.query.password;
@@ -44,38 +43,38 @@ function findUserByCredentials(req, response) {
     if(username && password){
         userModel.findUserByCredentials(username, password)
             .then(function (user) {
-                response.json(user);
+                res.json(user);
             }, function (err) {
-                response.sendStatus(404).send(err);
+                res.sendStatus(404).send(err);
             });
     }
     else if(username){
         userModel.findUserByUsername(username)
             .then(function (user) {
-                response.json(user);
+                res.json(user);
             }, function (err) {
-                response.sendStatus(404).send(err);
+                res.sendStatus(404).send(err);
             });
     }
 }
 
-function updateUser(req, response) {
+function updateUser(req, res) {
     var user = req.body;
     var userId = req.params.userId;
     userModel.updateUser(userId, user)
         .then(function (status) {
-            response.json(status);
+            res.json(status);
         }, function (err) {
-            response.sendStatus(404).send(err);
+            res.sendStatus(404).send(err);
         })
 }
 
-function deleteUser(req, response) {
+function deleteUser(req, res) {
     var userId = req.params.userId;
     userModel.deleteUser(userId)
         .then(function (status) {
-            response.json(status);
+            res.json(status);
         }, function (err) {
-            response.sendStatus(404).send(err);
+            res.sendStatus(404).send(err);
         })
 }

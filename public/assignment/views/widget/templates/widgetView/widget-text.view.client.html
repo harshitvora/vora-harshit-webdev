@@ -1,0 +1,12 @@
+<div class="hv-widget">
+    <div class=" hv-floating-icons pull-right">
+        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
+        <a href=""><span class="sort-handle glyphicon glyphicon-menu-hamburger hv-icon-black"></span></a>
+    </div>
+    <div ng-if="widget.formatted" text-angular ta-toolbar="..."></div>
+    <input ng-if="!widget.formatted && (!widget.rows || widget.rows===1)"
+           placeholder="{{widget.placeholder}}" class="form-control"/>
+    <textarea ng-if="!widget.formatted && (widget.rows > 1)"
+              rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
+              class="form-control">{{widget.text}}</textarea>
+</div>

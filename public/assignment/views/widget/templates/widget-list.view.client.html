@@ -14,16 +14,19 @@
         <ul id="sortable" class="hv-widget-list" widget-list>
             <li ng-repeat="widget in model.widgets" ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING">
-                    <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
+                    <ng-include src="'views/widget/templates/widgetView/widget-heading.view.client.html'">
                 </div>
                 <div ng-switch-when="IMAGE">
-                    <ng-include src="'views/widget/templates/widget-image.view.client.html'">
+                    <ng-include src="'views/widget/templates/widgetView/widget-image.view.client.html'">
                 </div>
                 <div ng-switch-when="YOUTUBE">
-                    <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
+                    <ng-include src="'views/widget/templates/widgetView/widget-youtube.view.client.html'">
                 </div>
                 <div ng-switch-when="HTML">
-                    <ng-include src="'views/widget/templates/widget-html.view.client.html'">
+                    <ng-include src="'views/widget/templates/widgetView/widget-html.view.client.html'">
+                </div>
+                <div ng-switch-when="TEXT">
+                    <ng-include src="'views/widget/templates/widgetView/widget-text.view.client.html'">
                 </div>
             </li>
         </ul>
