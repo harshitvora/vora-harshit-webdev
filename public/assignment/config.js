@@ -57,5 +57,9 @@
                 templateUrl: "views/widget/templates/widget-edit.view.client.html",
                 controller: "editWidgetController",
                 controllerAs: "model"})
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/search", {
+                templateUrl: "views/widget/templates/widgetView/widget-flickr-search.view.client.html",
+                controller: "flickrImageSearchController",
+                controllerAs: "model"})
     }
 })();
