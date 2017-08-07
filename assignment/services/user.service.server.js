@@ -17,7 +17,9 @@ function getAllUsers(req, res) {
     userModel.getAllUsers()
         .then(function (users) {
             res.json(users);
-        })
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
 
 function createUser(req, res) {
@@ -25,15 +27,20 @@ function createUser(req, res) {
     userModel.createUser(user)
         .then(function (user) {
             res.json(user);
-        })
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
 
 function findUserById(req, res) {
     userModel.findUserById(req.params.userId)
         .then(function (user) {
             res.json(user);
-        })
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
+
 
 function findUserByCredentials(req, res) {
 

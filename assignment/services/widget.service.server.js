@@ -5,6 +5,7 @@
 var app = require("../../express");
 var multer = require('multer'); // npm install multer --save
 var upload = multer({ dest: __dirname+'/../../public/uploads' });
+var widgetModel = require("../model/widget/widget.model.server");
 
 var widgets = [
     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -19,75 +20,81 @@ var widgets = [
 
 // http handlers:
 app.post("/api/page/:pageId/widget", createWidget);
-app.get("/api/page/:pageId/widget", findAllWidgetsForUser);
+app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
 app.get("/api/widget/:widgetId", findWidgetById);
 app.put("/api/widget/:widgetId", updateWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
 app.post ("/api/upload", upload.single('myFile'), uploadImage);
 app.put("/api/page/:pageId/widget", updateWidgetIndex);
 
-function createWidget(req, response) {
+function createWidget(req, res) {
     var widget = req.body;
     var pageId = req.params.pageId;
-    widget.pageId = pageId;
-    widgets.push(widget);
-    response.send(widget);
+    /// / widget.pageId = pageId;
+    // widgets.push(widget);
+    // res.send(widget);
+
+    widgetModel.createWidget(pageId, widget)
+        .then(function (widget) {
+            res.json(widget);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
 
 
-function findAllWidgetsForUser(req, response) {
+function findAllWidgetsForPage(req, res) {
     var pageId = req.params.pageId;
-    var _widgets = [];
-    for(var w in widgets){
-        if(widgets[w].pageId === pageId){
-            _widgets.push(widgets[w]);
-        }
-    }
-    response.json(_widgets);
+    widgetModel.findAllWidgetsForPage(pageId)
+        .then(function (widgets) {
+            res.json(widgets);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
 
-function findWidgetById(req, response) {
+function findWidgetById(req, res) {
     var widgetId = req.params.widgetId;
-    for(var w in widgets){
-        if(widgets[w]._id === widgetId){
-            response.send(widgets[w]);
-        }
-    }
-    response.send(null);
+    widgetModel.findWidgetById(widgetId)
+        .then(function (widget) {
+            res.json(widget);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
 
-function updateWidget(req, response) {
-    widget = req.body;
-    widgetId = req.params.widgetId;
-    widget._id = widgetId;
-    for(var w in widgets){
-        if(widgets[w]._id === widgetId){
-            widgets[w] = widget;
-        }
-    }
-    response.send(widget);
+function updateWidget(req, res) {
+    var widget = req.body;
+    var widgetId = req.params.widgetId;
+    // widget._id = widgetId;
+    widgetModel.updateWidget(widgetId, widget)
+        .then(function (widget) {
+            res.json(widget);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
 
-function deleteWidget(req, response) {
-    widgetId = req.params.widgetId;
-    for(var w in widgets){
-        if(widgets[w]._id === widgetId){
-            delete widgets[w];
-        }
-    }
-    response.send("0");
+function deleteWidget(req, res) {
+    var widgetId = req.params.widgetId;
+    widgetModel.deleteWidget(widgetId)
+        .then(function (status) {
+            res.json(status);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
 }
 
 function getWidgetById(widgetId) {
-    for(var w in widgets){
-        if(widgets[w]._id === widgetId){
-            return widgets[w];
-        }
-    }
-    return null;
+    widgetModel.findWidgetById(widgetId)
+        .then(function (widget) {
+            return widget;
+        }, function (err) {
+            return null;
+        });
 }
 
-function updateWidgetIndex(req, response) {
+function updateWidgetIndex(req, res) {
     var pageId = req.params.pageId;
     var startIndex = req.query.initial;
     var endIndex = req.query.final;
@@ -105,7 +112,7 @@ function updateWidgetIndex(req, response) {
     var widget = _widgets.splice(startIndex, 1);
     _widgets.splice(endIndex, 0, widget[0]);
     widgets.push.apply(widgets, _widgets);
-    response.send("0");
+    res.send("0");
 }
 
 function uploadImage(req, res) {

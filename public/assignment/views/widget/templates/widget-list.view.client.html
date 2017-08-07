@@ -12,7 +12,7 @@
 <div class="container-fluid hv-container-overflow">
     <div class="col-md-6 col-md-offset-3 col-sm-12">
         <ul id="sortable" class="hv-widget-list" widget-list>
-            <li ng-repeat="widget in model.widgets" ng-switch="widget.widgetType">
+            <li ng-repeat="widget in model.widgets" ng-switch="widget.type">
                 <div ng-switch-when="HEADING">
                     <ng-include src="'views/widget/templates/widgetView/widget-heading.view.client.html'">
                 </div>

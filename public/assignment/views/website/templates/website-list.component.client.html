@@ -5,4 +5,5 @@
         <a href="#!/user/{{model.uid}}/website/{{website._id}}/page/">{{website.name}}</a>
         <a href="#!/user/{{model.uid}}/website/{{website._id}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
     </li>
+    <li class="list-group-item" ng-show="!model.websites.length">You have no websites</li>
 </ul>

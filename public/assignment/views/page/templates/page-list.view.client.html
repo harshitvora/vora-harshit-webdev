@@ -17,6 +17,7 @@
                     <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{page._id}}/widget">{{page.name}}</a>
                     <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{page._id}}"><span class="glyphicon glyphicon-cog pull-right"></span></a>
                 </li>
+                <li class="list-group-item" ng-show="!model.pages.length">You have no pages</li>
             </ul>
         </div>
     </div>
