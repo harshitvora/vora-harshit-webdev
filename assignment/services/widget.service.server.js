@@ -43,6 +43,16 @@ function createWidget(req, res) {
 }
 
 
+// function findAllWidgetsForPage(req, res) {
+//     var pageId = req.params.pageId;
+//     widgetModel.findAllWidgetsForPage(pageId)
+//         .then(function (widgets) {
+//             res.json(widgets);
+//         }, function (err) {
+//             res.sendStatus(404).send(err);
+//         });
+// }
+
 function findAllWidgetsForPage(req, res) {
     var pageId = req.params.pageId;
     widgetModel.findAllWidgetsForPage(pageId)
@@ -52,6 +62,7 @@ function findAllWidgetsForPage(req, res) {
             res.sendStatus(404).send(err);
         });
 }
+
 
 function findWidgetById(req, res) {
     var widgetId = req.params.widgetId;
@@ -98,21 +109,29 @@ function updateWidgetIndex(req, res) {
     var pageId = req.params.pageId;
     var startIndex = req.query.initial;
     var endIndex = req.query.final;
-    var _widgets = [];
-    for(var w in widgets){
-        if(widgets[w].pageId === pageId){
-            _widgets.push(widgets[w]);
-        }
-    }
-    for (var i = widgets.length - 1; i >= 0; i--) {
-        if (widgets[i].pageId === pageId) {
-            widgets.splice(i, 1);
-        }
-    }
-    var widget = _widgets.splice(startIndex, 1);
-    _widgets.splice(endIndex, 0, widget[0]);
-    widgets.push.apply(widgets, _widgets);
-    res.send("0");
+
+    widgetModel.reorderWidget(pageId, startIndex, endIndex)
+        .then(function (status) {
+            res.json(status);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
+
+    // var _widgets = [];
+    // for(var w in widgets){
+    //     if(widgets[w].pageId === pageId){
+    //         _widgets.push(widgets[w]);
+    //     }
+    // }
+    // for (var i = widgets.length - 1; i >= 0; i--) {
+    //     if (widgets[i].pageId === pageId) {
+    //         widgets.splice(i, 1);
+    //     }
+    // }
+    // var widget = _widgets.splice(startIndex, 1);
+    // _widgets.splice(endIndex, 0, widget[0]);
+    // widgets.push.apply(widgets, _widgets);
+    // res.send("0");
 }
 
 function uploadImage(req, res) {

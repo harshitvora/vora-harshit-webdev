@@ -25,7 +25,7 @@ function createPageForWebsite(websiteId, page) {
         .create(page)
         .then(function (pageDoc) {
             pageTmp = pageDoc;
-            return websiteModel.addPage(websiteId, pageDoc._id)
+            return websiteModel.addPage(websiteId, pageDoc._id);
         })
         .then(function (websiteDoc) {
             return pageTmp;
@@ -38,7 +38,9 @@ function findAllPagesForWebsite(websiteId) {
 }
 
 function findPageById(pageId) {
-    return pageModel.findById(pageId);
+    return pageModel.findById(pageId)
+        .populate('widgets')
+        .exec();
 }
 
 function updatePage(pageId, page) {

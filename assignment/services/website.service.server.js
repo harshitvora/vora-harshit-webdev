@@ -26,8 +26,10 @@ function createWebsite(req, res) {
     var userId = req.params.userId;
     websiteModel.createWebsiteForUser(userId, website)
         .then(function (website) {
+            console.log(website);
             res.json(website);
         }, function (err) {
+            console.log(err);
             res.sendStatus(404).send(err);
         });
 }

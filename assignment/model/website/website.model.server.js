@@ -25,11 +25,11 @@ function createWebsiteForUser(userId, website) {
         .create(website)
         .then(function (websiteDoc) {
             websiteTmp = websiteDoc;
-            return userModel.addWebsite(userId, websiteDoc._id)
+            return userModel.addWebsite(userId, websiteDoc._id);
         })
         .then(function (userDoc) {
             return websiteTmp;
-        })
+        });
 }
 
 function findAllWebsitesForUser(userId) {

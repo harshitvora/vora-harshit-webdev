@@ -18,12 +18,16 @@ userModel.addWebsite = addWebsite;
 userModel.removeWebsite = removeWebsite;
 module.exports = userModel;
 
+var websiteModel = require("../website/website.model.server");
+
 function createUser(user) {
     return userModel.create(user);
 }
 
 function findUserById(id) {
-    return userModel.findById(id);
+    return userModel.findById(id)
+        .populate('websites')
+        .exec();
 }
 
 function findUserByUsername(username) {
@@ -43,9 +47,25 @@ function updateUser(userId, newUser) {
 }
 
 function deleteUser(userId) {
-    return userModel.deleteOne({_id: userId});
+    return userModel
+        .findById(userId)
+        .then(function (user) {
+            var index = user.websites;
+            console.log(index);
+            return userModel.remove({_id: userId});
+        });
 }
 
+
+
+function addWebsite(userId, websiteId) {
+    return userModel
+        .findById(userId)
+        .then(function (user) {
+            user.websites.push(websiteId);
+            return user.save();
+        })
+}
 
 function removeWebsite(userId, websiteId) {
     return userModel
@@ -55,13 +75,4 @@ function removeWebsite(userId, websiteId) {
             user.websites.splice(index, 1);
             return user.save();
         })
-}
-
-function addWebsite(userId, websiteId) {
-    return userModel
-        .findById(userId)
-        .then(function (user) {
-            user.websites.push(websiteId);
-            return user.save();
-        });
 }
