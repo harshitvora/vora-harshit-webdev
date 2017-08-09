@@ -45,9 +45,8 @@
         function logout() {
             if($rootScope.currentUser){
                 delete $rootScope.currentUser;
-                $location.url("/login");
             }
-
+            $location.url("/login");
         }
     }
 })();
