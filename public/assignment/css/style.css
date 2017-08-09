@@ -64,6 +64,7 @@ body{
 
 .hv-widget{
     position: relative;
+    padding: 2px;
 }
 
 .hv-floating-icons{
