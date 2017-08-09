@@ -12,12 +12,24 @@ widgetModel.findAllWidgetsForPage = findAllWidgetsForPage;
 widgetModel.findWidgetById = findWidgetById;
 widgetModel.updateWidget = updateWidget;
 widgetModel.deleteWidget = deleteWidget;
+widgetModel.reorderWidget = reorderWidget;
 module.exports = widgetModel;
 
+var pageModel = require("../page/page.model.server");
+
 function createWidget(pageId, widget) {
+    var widgetTmp = null;
     widget._page = pageId;
-    return widgetModel.create(widget);
+    return widgetModel.create(widget)
+        .then(function (widgetDoc) {
+            widgetTmp = widgetDoc;
+            return pageModel.addWidget(pageId, widgetDoc._id)
+        })
+        .then(function (pageDoc) {
+            return widgetTmp;
+        })
 }
+
 
 function findAllWidgetsForPage(pageId) {
     return widgetModel.find({_page: pageId});

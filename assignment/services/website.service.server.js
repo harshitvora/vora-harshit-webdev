@@ -19,16 +19,11 @@ app.post("/api/user/:userId/website", createWebsite);
 app.get("/api/user/:userId/website", findAllWebsitesForUser);
 app.get("/api/website/:websiteId", findWebsiteById);
 app.put("/api/website/:websiteId", updateWebsite);
-app.delete("/api/website/:websiteId", deleteWebsite);
+app.delete("/api/user/:userId/website/:websiteId", deleteWebsite);
 
 function createWebsite(req, res) {
     var website = req.body;
     var userId = req.params.userId;
-    // website._id = (new Date()).getTime() + "";
-    // website.developerId = userId;
-    // websites.push(website);
-    // res.send(website);
-
     websiteModel.createWebsiteForUser(userId, website)
         .then(function (website) {
             res.json(website);
@@ -68,7 +63,7 @@ function updateWebsite(req, res) {
 }
 
 function deleteWebsite(req, res) {
-    websiteModel.deleteWebsite(req.params.websiteId)
+    websiteModel.deleteWebsite(req.params.userId, req.params.websiteId)
         .then(function (status) {
             res.json(status);
         }, function (err) {

@@ -12,11 +12,9 @@
                 handle: ".sort-handle",
                 start: function (event, ui) {
                     startIndex = ui.item.index();
-                    console.log(startIndex);
                 },
                 stop: function (event, ui) {
                     endIndex = ui.item.index();
-                    console.log(endIndex);
                     widgetService.saveWidgetIndex(startIndex, endIndex, scope.model.pid);
                 }});
         }

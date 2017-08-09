@@ -41,8 +41,8 @@
                 });
         }
 
-        function deleteWebsite(websiteId) {
-            return $http.delete("/api/website/"+websiteId)
+        function deleteWebsite(userId, websiteId) {
+            return $http.delete("/api/user/"+userId+"/website/"+websiteId)
                 .then(function (response) {
                     return response.data;
                 });
