@@ -1,0 +1,70 @@
+
+<div class="navbar navbar-default navbar-fixed-top hv-navbar-blue">
+    <div class="container-fluid">
+        <p class="navbar-text pull-left">
+            <a href="../../"><span class="glyphicon glyphicon-chevron-left pull-left hv-icon-white"></span></a>
+        </p>
+        <div class="navbar-brand hv-text-white">Profile</div>
+        <p class="navbar-text pull-right">
+            <a href="profile.html"><span class="glyphicon glyphicon-ok pull-right hv-icon-white"></span></a>
+        </p>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4 hv-container-overflow" ng-controller="profileController">
+            <h2>Profile</h2>
+            <div>
+                test
+                {{user}}
+            </div>
+            <form action=""
+                  method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                           readonly
+                           name="username"
+                           id="username"
+                           value="harshit"
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text"
+                           name="email"
+                           id="email"
+                           value="harshit@gmail.com"
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text"
+                           name="firstName"
+                           id="firstName"
+                           value="Harshit"
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text"
+                           name="lastName"
+                           id="lastName"
+                           value="Vora"
+                           class="form-control">
+                </div>
+                    <a href="../website/website-list.html"
+                       class="btn btn-primary btn-block">Websites</a>
+                    <a href="login.html"
+                       class="btn btn-danger btn-block">Logout</a>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="navbar navbar-default navbar-fixed-bottom hv-navbar-blue">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a href="../user/profile.html"><span class="glyphicon glyphicon-user hv-icon-white"></span></a>
+        </p>
+    </div>
+</div>
